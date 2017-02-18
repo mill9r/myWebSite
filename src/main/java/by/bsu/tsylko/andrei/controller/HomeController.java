@@ -1,7 +1,9 @@
 package by.bsu.tsylko.andrei.controller;
 
 import by.bsu.tsylko.andrei.dao.TeacherDao;
+import by.bsu.tsylko.andrei.dao.TeacherDaoImpl;
 import by.bsu.tsylko.andrei.model.Teacher;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +14,9 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-    private TeacherDao t = new TeacherDao();
+
+    @Autowired
+    private TeacherDao teacherDao;
 
     @RequestMapping("/")
     public String home() {
@@ -21,17 +25,32 @@ public class HomeController {
 
     @RequestMapping("/teacherList")
     public String getTeachers(Model model) {
-        List<Teacher> teachers = t.getTeacherList();
+        List<Teacher> teachers = teacherDao.getAllTeachers();
         model.addAttribute("teachers", teachers);
         return "teacherList";
     }
 
     @RequestMapping("/teacherList/viewTeacher/{contractNumber}")
     public String viewTeacher(@PathVariable int contractNumber, Model model) throws IOException {
-        Teacher teacher = t.getTeacherContractNumber(contractNumber);
+        Teacher teacher = teacherDao.getTeacherById(contractNumber);
         model.addAttribute(teacher);
         return "viewTeacher";
 
     }
+
+
+    @RequestMapping("/admin")
+    public String adminPage() {
+        return "admin";
+    }
+
+    @RequestMapping("admin/teacherAccounting")
+    public String teacherAccounting(Model model) {
+        List<Teacher> teachers = teacherDao.getAllTeachers();
+        model.addAttribute("teachers", teachers);
+
+        return "teacherAccounting";
+    }
+
 
 }

@@ -1,3 +1,4 @@
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +38,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="<c:url value="/"/>">Home</a></li>
                         <%--JSTL Tag--%>
-                        <li><a href="<c:url value="/teachertList"/> ">Teachers</a></li>
+                        <li><a href="<c:url value="teachertList"/> ">Teachers</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -59,3 +60,8 @@
 
     </div>
 </div>
+
+<br>
+<br>
+<br>
+<br>

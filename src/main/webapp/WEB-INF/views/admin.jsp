@@ -7,9 +7,14 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Teachers list</h1>
-            <p class="lead">Here is detail information of the product</p>
+            <h1>Administrator page</h1>
+            <p class="lead">This is the administration page</p>
         </div>
+        <h3>
+            <a href="<c:url value="/admin/teacherAccounting"/> "> Teacher Accounting</a>
+        </h3>
+
+        <p>Here you can view, check and modify the teacher accounting</p>
         <table class="table table-striped table-hover">
             <thead>
             <tr>

@@ -1,12 +1,34 @@
 package by.bsu.tsylko.andrei.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Teacher {
-    private String name;
-    private String lastname;
-    private String patronymic;
+
+    @Id
     private int contractNumber;
+
+
+    private String name;
+    private String lastName;
+    private String patronymic;
     private String academicDegree;
     private int teacherDepartment;
+
+    @Transient
+    private MultipartFile teacherImage;
+
+    public MultipartFile getTeacherImage() {
+        return teacherImage;
+    }
+
+    public void setTeacherImage(MultipartFile teacherImage) {
+        this.teacherImage = teacherImage;
+    }
 
     public String getName() {
         return name;
@@ -16,12 +38,12 @@ public class Teacher {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPatronymic() {

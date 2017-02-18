@@ -7,8 +7,8 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Teachers list</h1>
-            <p class="lead">Here is detail information of the product</p>
+            <h1>Teachers accounting page</h1>
+            <p class="lead">This is a teachers accounting page</p>
         </div>
         <table class="table table-striped table-hover">
             <thead>
@@ -34,5 +34,6 @@
             </c:forEach>
         </table>
 
+        <a href="<spring:url value="/admin/teacherAccounting/addTeacher"/>" class="btn btn-primary">Add teacher</a>
 
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
