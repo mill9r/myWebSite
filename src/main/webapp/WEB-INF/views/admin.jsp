@@ -14,30 +14,12 @@
             <a href="<c:url value="/admin/teacherAccounting"/> "> Teacher Accounting</a>
         </h3>
 
+        <c:if test="${pageContext.request.userPrincipal.name !=null}">
+        <h2>
+            Welcome: ${pageContext.request.userPrincipal.name} | <a href="<c:url value="/j_spring_security_logout"/> ">Logout</a>
+
+        </h2>
+        </c:if>
+
         <p>Here you can view, check and modify the teacher accounting</p>
-        <table class="table table-striped table-hover">
-            <thead>
-            <tr>
-                <th>Photo Thumb</th>
-                <th>Teacher name</th>
-                <th>Teacher last name</th>
-                <th>Teacher patronymic</th>
-                <th>Teachers academic degree</th>
-            </tr>
-            </thead>
-            <c:forEach items="${teachers}" var="teacher">
-                <tr>
-                    <td><img src="#"/> " alt="img"/>
-                    </td>
-                    <td>${teacher.name}</td>
-                    <td>${teacher.lastName}</td>
-                    <td>${teacher.patronymic}</td>
-                    <td>${teacher.academicDegree}</td>
-                    <td><a href="<spring:url value="/teacherList/viewTeacher/${teacher.contractNumber}"/> "> <span
-                            class="glyphicon glyphicon-info-sign"></span></a></td>
-                </tr>
-            </c:forEach>
-        </table>
-
-
         <%@include file="/WEB-INF/views/template/footer.jsp" %>

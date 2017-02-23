@@ -14,22 +14,27 @@
             <thead>
             <tr>
                 <th>Photo Thumb</th>
-                <th>Teacher name</th>
-                <th>Teacher last name</th>
-                <th>Teacher patronymic</th>
-                <th>Teachers academic degree</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Patronymic</th>
+                <th>Academic degree</th>
             </tr>
             </thead>
             <c:forEach items="${teachers}" var="teacher">
                 <tr>
-                    <td><img src="#"/> " alt="img"/>
+                    <td><img src="<c:url value="/resources/images/${teacher.contractNumber}.png"/> " alt="img"
+                        style="width:100%"/>
                     </td>
                     <td>${teacher.name}</td>
                     <td>${teacher.lastName}</td>
                     <td>${teacher.patronymic}</td>
                     <td>${teacher.academicDegree}</td>
                     <td><a href="<spring:url value="/teacherList/viewTeacher/${teacher.contractNumber}"/> "> <span
-                            class="glyphicon glyphicon-info-sign"></span></a></td>
+                            class="glyphicon glyphicon-info-sign"></span></a>
+                        <a href="<spring:url value="/admin/teacherAccounting/deleteTeacher/${teacher.contractNumber}"/> "> <span
+                                class="glyphicon glyphicon-remove"></span></a>
+                        <a href="<spring:url value="/admin/teacherAccounting/editTeacher/${teacher.contractNumber}"/> "> <span
+                                class="glyphicon glyphicon-pencil"></span></a></td>
                 </tr>
             </c:forEach>
         </table>

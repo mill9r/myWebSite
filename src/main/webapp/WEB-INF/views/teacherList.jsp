@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <%--Teachers table--%>
 <div class="container-wrapper">
@@ -14,15 +15,16 @@
             <thead>
             <tr>
                 <th>Photo Thumb</th>
-                <th>Teacher name</th>
-                <th>Teacher last name</th>
-                <th>Teacher patronymic</th>
-                <th>Teachers academic degree</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Patronymic</th>
+                <th>Academic degree</th>
             </tr>
             </thead>
             <c:forEach items="${teachers}" var="teacher">
                 <tr>
-                    <td><img src="#"/> " alt="img"/>
+                    <td><img src="<c:url value="/resources/images/${teacher.contractNumber}.png"/> " alt="img"
+                        style="width:100%"/>
                     </td>
                     <td>${teacher.name}</td>
                     <td>${teacher.lastName}</td>

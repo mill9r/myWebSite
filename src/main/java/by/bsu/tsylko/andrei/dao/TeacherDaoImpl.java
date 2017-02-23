@@ -37,7 +37,7 @@ public class TeacherDaoImpl implements TeacherDao {
 
     public List<Teacher> getAllTeachers() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from Teacher");
+        Query query = session.createQuery("from teacher");
         List<Teacher> teachers = query.list();
         session.flush();
         return teachers;

@@ -1,33 +1,61 @@
 package by.bsu.tsylko.andrei.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
+import javax.validation.constraints.Min;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
-public class Teacher {
+public class Teacher implements Serializable {
+
 
     @Id
+//    @Min(value = 1, message = " The contract number should be positive")
     private int contractNumber;
 
 
     private String name;
+    @NotEmpty(message = " Please enter a surname")
     private String lastName;
     private String patronymic;
     private String academicDegree;
-    private int teacherDepartment;
 
     @Transient
     private MultipartFile teacherImage;
 
-    public MultipartFile getTeacherImage() {
-        return teacherImage;
+
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Schedule> scheduleList;
+
+
+//    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    private List<TeacherResult> teacherResults;
+
+//    public List<TeacherResult> getTeacherResults() {
+//        return teacherResults;
+//    }
+//
+//    public void setTeacherResults(List<TeacherResult> teacherResults) {
+//        this.teacherResults = teacherResults;
+//    }
+
+    public List<Schedule> getScheduleList() {
+        return scheduleList;
     }
 
-    public void setTeacherImage(MultipartFile teacherImage) {
-        this.teacherImage = teacherImage;
+    public void setScheduleList(List<Schedule> scheduleList) {
+        this.scheduleList = scheduleList;
+    }
+
+    public int getContractNumber() {
+        return contractNumber;
+    }
+
+    public void setContractNumber(int contractNumber) {
+        this.contractNumber = contractNumber;
     }
 
     public String getName() {
@@ -54,14 +82,6 @@ public class Teacher {
         this.patronymic = patronymic;
     }
 
-    public int getContractNumber() {
-        return contractNumber;
-    }
-
-    public void setContractNumber(int contractNumber) {
-        this.contractNumber = contractNumber;
-    }
-
     public String getAcademicDegree() {
         return academicDegree;
     }
@@ -70,11 +90,11 @@ public class Teacher {
         this.academicDegree = academicDegree;
     }
 
-    public int getTeacherDepartment() {
-        return teacherDepartment;
+    public MultipartFile getTeacherImage() {
+        return teacherImage;
     }
 
-    public void setTeacherDepartment(int teacherDepartment) {
-        this.teacherDepartment = teacherDepartment;
+    public void setTeacherImage(MultipartFile teacherImage) {
+        this.teacherImage = teacherImage;
     }
 }

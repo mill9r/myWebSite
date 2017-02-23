@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/final_project"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/final_project?useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="unreal2k3"/>
     </bean>
@@ -16,7 +21,7 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
             </props>
@@ -30,5 +35,35 @@
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
+    <!--for photo-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10240000"></property>
+
+    </bean>
+
+
+    <!--<security:http auto-config="true">-->
+        <!--<security:intercept-url pattern="/admin/**" access="ROLE_USER"/>-->
+        <!--<security:form-login-->
+                <!--login-page="/login"-->
+                <!--default-target-url="/admin/"-->
+                <!--authentication-failure-url="/login?error"-->
+                <!--username-parameter="username"-->
+                <!--password-parameter="password"/>-->
+        <!--<security:logout-->
+                <!--logout-success-url="/login?logout"/>-->
+    <!--</security:http>-->
+
+
+    <!--know where retrieve information-->
+    <!--<security:authentication-manager>-->
+        <!--<security:authentication-provider>-->
+            <!--<security:jdbc-user-service data-source-ref="dataSource"-->
+                                        <!--authorities-by-username-query="SELECT username, authority From authorities WHERE username = ? "-->
+                                        <!--users-by-username-query="SELECT username, password, enabled FROM users WHERE username = ?"/>-->
+        <!--</security:authentication-provider>-->
+    <!--</security:authentication-manager>-->
+
 
 </beans>
