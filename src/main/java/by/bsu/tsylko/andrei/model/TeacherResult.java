@@ -50,10 +50,10 @@ public class TeacherResult implements Serializable {
     private Subject subject;
 
 
-//    @ManyToOne
-//    @JoinColumn(name = "teacherIdResult")
-//    @JsonIgnore
-//    private Teacher teacher;
+    @ManyToOne
+    @JoinColumn(name = "teacherIdResult")
+    @JsonIgnore
+    private Teacher teacher;
 
 
 }

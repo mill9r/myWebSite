@@ -18,7 +18,7 @@ public class GroupStudent implements Serializable {
     @OrderBy("studentId")
     private Set<Student> studentList;
 
-//    @Min(value = 1, message = "The group number should be positive")
+    @Min(value = 1, message = "The group number should be positive")
     private int groupNumber;
 
 

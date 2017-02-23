@@ -15,7 +15,7 @@ public class Student implements Serializable{
 
 
     @Id
-//    @Min(value = 1, message = " The student ID should be positive")
+    @Min(value = 1, message = " The student ID should be positive")
     private int studentId;
 
     private String name;

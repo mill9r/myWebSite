@@ -13,7 +13,7 @@ public class Teacher implements Serializable {
 
 
     @Id
-//    @Min(value = 1, message = " The contract number should be positive")
+    @Min(value = 1, message = " The contract number should be positive")
     private int contractNumber;
 
 
@@ -31,16 +31,16 @@ public class Teacher implements Serializable {
     private List<Schedule> scheduleList;
 
 
-//    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-//    private List<TeacherResult> teacherResults;
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<TeacherResult> teacherResults;
 
-//    public List<TeacherResult> getTeacherResults() {
-//        return teacherResults;
-//    }
-//
-//    public void setTeacherResults(List<TeacherResult> teacherResults) {
-//        this.teacherResults = teacherResults;
-//    }
+    public List<TeacherResult> getTeacherResults() {
+        return teacherResults;
+    }
+
+    public void setTeacherResults(List<TeacherResult> teacherResults) {
+        this.teacherResults = teacherResults;
+    }
 
     public List<Schedule> getScheduleList() {
         return scheduleList;

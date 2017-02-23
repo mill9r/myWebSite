@@ -23,12 +23,12 @@ public class Schedule implements Serializable {
 //    @ManyToOne
 //    @JoinColumn(name = "groupId")
 //    @JsonIgnore
-//    private Group group;
-
-    @ManyToOne
-    @JoinColumn(name = "subjectId")
-    @JsonIgnore
-    private Subject subject;
+//    private GroupStudent group;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "subjectId")
+//    @JsonIgnore
+//    private Subject subject;
 
     @ManyToOne
     @JoinColumn(name = "teacherId")
