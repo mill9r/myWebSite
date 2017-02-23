@@ -20,15 +20,15 @@ public class Schedule implements Serializable {
 
     private int currentSemester;
 
-//    @ManyToOne
-//    @JoinColumn(name = "groupId")
-//    @JsonIgnore
-//    private GroupStudent group;
+    @ManyToOne
+    @JoinColumn(name = "groupId")
+    @JsonIgnore
+    private GroupStudent group;
 //
-//    @ManyToOne
-//    @JoinColumn(name = "subjectId")
-//    @JsonIgnore
-//    private Subject subject;
+    @ManyToOne
+    @JoinColumn(name = "subjectId")
+    @JsonIgnore
+    private Subject subject;
 
     @ManyToOne
     @JoinColumn(name = "teacherId")
@@ -51,21 +51,21 @@ public class Schedule implements Serializable {
         this.currentSemester = currentSemester;
     }
 
-//    public Group getGroup() {
-//        return group;
-//    }
-//
-//    public void setGroup(Group group) {
-//        this.group = group;
-//    }
+    public GroupStudent getGroup() {
+        return group;
+    }
 
-//    public Subject getSubject() {
-//        return subject;
-//    }
-//
-//    public void setSubject(Subject subject) {
-//        this.subject = subject;
-//    }
+    public void setGroup(GroupStudent group) {
+        this.group = group;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
 
     public Teacher getTeacher() {
         return teacher;

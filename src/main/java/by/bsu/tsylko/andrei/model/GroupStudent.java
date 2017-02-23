@@ -22,9 +22,9 @@ public class GroupStudent implements Serializable {
     private int groupNumber;
 
 
-//    @OneToMany(mappedBy = "group",cascade = CascadeType.ALL)
-//    @OrderBy("scheduleId")
-//    private Set<Schedule> scheduleList;
+    @OneToMany(mappedBy = "group",cascade = CascadeType.ALL)
+    @OrderBy("scheduleId")
+    private Set<Schedule> scheduleList;
 
 
     public long getGroupId() {
@@ -51,11 +51,11 @@ public class GroupStudent implements Serializable {
         this.groupNumber = groupNumber;
     }
 
-//    public Set<Schedule> getScheduleList() {
-//        return scheduleList;
-//    }
-//
-//    public void setScheduleList(Set<Schedule> scheduleList) {
-//        this.scheduleList = scheduleList;
-//    }
+    public Set<Schedule> getScheduleList() {
+        return scheduleList;
+    }
+
+    public void setScheduleList(Set<Schedule> scheduleList) {
+        this.scheduleList = scheduleList;
+    }
 }

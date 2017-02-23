@@ -17,9 +17,9 @@ public class Subject implements Serializable {
     @GeneratedValue
     private long subjectId;
 
-//    @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL)
-//    @OrderBy("scheduleId")
-//    private Set<Schedule> scheduleList;
+    @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL)
+    @OrderBy("scheduleId")
+    private Set<Schedule> scheduleList;
 
 
     @NotEmpty(message = " Please enter a subject name")
@@ -38,13 +38,13 @@ public class Subject implements Serializable {
         this.subjectId = subjectId;
     }
 
-//    public Set<Schedule> getScheduleList() {
-//        return scheduleList;
-//    }
-//
-//    public void setScheduleList(Set<Schedule> scheduleList) {
-//        this.scheduleList = scheduleList;
-//    }
+    public Set<Schedule> getScheduleList() {
+        return scheduleList;
+    }
+
+    public void setScheduleList(Set<Schedule> scheduleList) {
+        this.scheduleList = scheduleList;
+    }
 
     public String getSubjectName() {
         return subjectName;
