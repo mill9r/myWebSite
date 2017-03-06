@@ -1,10 +1,12 @@
-package by.bsu.tsylko.andrei.controller;
+package by.bsu.tsylko.andrei.controller.admin;
 
 import by.bsu.tsylko.andrei.dao.TeacherDao;
 import by.bsu.tsylko.andrei.model.Teacher;
+import by.bsu.tsylko.andrei.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,22 +22,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-
+@RequestMapping("admin")
 @Controller
 public class AdminController {
 
     private Path path;
 
     @Autowired
-    private TeacherDao teacherDao;
+    private TeacherService teacherDao;
 
 
-    @RequestMapping("/admin")
+    @RequestMapping
     public String adminPage() {
         return "admin";
     }
 
-    @RequestMapping("/admin/teacherAccounting")
+    @RequestMapping("/teacherAccounting")
     public String teacherAccounting(Model model) {
         List<Teacher> teachers = teacherDao.getAllTeachers();
         model.addAttribute("teachers", teachers);
@@ -44,29 +46,30 @@ public class AdminController {
     }
 
 
-//    @RequestMapping("/admin/teacherAccounting/addTeacher")
-//    public String addTeacher(Model model) {
-//        Teacher teacher = new Teacher();
-//        teacher.setContractNumber(1111);
-//        teacher.setAcademicDegree("Bachelor");
-//        teacher.setTeacherDepartment(1);
-//        System.out.println("work addTeacher");
-//        model.addAttribute("teacher", teacher);
-//        return "addTeacher";
-//    }
-
-    @RequestMapping("/admin/teacherAccounting/editTeacher/{id}")
-    public String editProduct(@PathVariable("id") int id, Model model) {
-        Teacher teacher = teacherDao.getTeacherById(id);
-        model.addAttribute(teacher);
-        return "editTeacher";
+    @RequestMapping("/teacherAccounting/addTeacher")
+    public String addTeacher(Model model) {
+        Teacher teacher = new Teacher();
+        int number = 1111;
+        teacher.setContractNumber(number);
+        //set default
+        teacher.setUsername(String.valueOf(number));
+        teacher.setPassword(String.valueOf(number));
+        teacher.setAcademicDegree("Bachelor");
+        System.out.println("work addTeacher");
+        model.addAttribute("teacher", teacher);
+        return "addTeacher";
     }
 
-    @RequestMapping(value = "/admin/teacherAccounting/addTeacher", method = RequestMethod.POST)
+
+
+    @RequestMapping(value = "/teacherAccounting/addTeacher", method = RequestMethod.POST)
     public String addTeacherPost(@Valid @ModelAttribute("teacher") Teacher teacher, BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {
             return "addTeacher";
         }
+
+        teacher.setUsername(String.valueOf(teacher.getContractNumber()));
+        teacher.setPassword(String.valueOf(teacher.getContractNumber()));
 
         teacherDao.addTeacher(teacher);
         //for photo
@@ -88,7 +91,7 @@ public class AdminController {
     }
 
 
-    @RequestMapping("/admin/teacherAccounting/deleteTeacher/{id}")
+    @RequestMapping("/teacherAccounting/deleteTeacher/{id}")
     public String deleteTeacher(@PathVariable int id, Model model, HttpServletRequest request) {
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 
@@ -109,11 +112,18 @@ public class AdminController {
         return "redirect:/admin/teacherAccounting ";
     }
 
+    @RequestMapping("/teacherAccounting/editTeacher/{id}")
+    public String editTeacher(@PathVariable("id") int id, Model model) {
+        Teacher teacher = teacherDao.getTeacherById(id);
+        model.addAttribute(teacher);
+        return "editTeacher";
+    }
 
-    @RequestMapping(value = "/admin/teacherAccounting/editTeacher", method = RequestMethod.POST)
-    public String editProduct(@Valid @ModelAttribute("product") Teacher teacher, Model model, BindingResult result, HttpServletRequest request) {
+    @RequestMapping(value = "/teacherAccounting/editTeacher", method = RequestMethod.POST)
+    public String editTeacher(@Valid @ModelAttribute("teacher") Teacher teacher, BindingResult result, HttpServletRequest request) {
+
         if (result.hasErrors()) {
-            return "editProduct";
+            return "editTeacher";
         }
 
         MultipartFile productImage = teacher.getTeacherImage();

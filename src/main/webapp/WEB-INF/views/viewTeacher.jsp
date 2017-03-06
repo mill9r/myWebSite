@@ -1,9 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
-<%----%>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <div class="container-wrapper">
     <div class="container">
@@ -24,7 +19,6 @@
                     <h3>${teacher.lastName}</h3>
                     <h3>${teacher.patronymic}</h3>
                     <p><strong>Academic degree</strong> : ${teacher.academicDegree}</p>
-                    <p><strong>Department</strong> : ${teacher.teacherDepartment}</p>
 
                     <c:set var="url" scope="page" value="/teacherList"/>
                     <a href="<c:url value="${url}"/> " class="btn btn-default">Back</a>

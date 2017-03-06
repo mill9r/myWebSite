@@ -3,6 +3,8 @@ package by.bsu.tsylko.andrei.model;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -12,26 +14,35 @@ public class GroupStudent implements Serializable {
 
     @Id
     @GeneratedValue
-    private long groupId;
+    private int groupId;
 
-    @OneToMany(mappedBy = "group",cascade = CascadeType.ALL)
-    @OrderBy("studentId")
-    private Set<Student> studentList;
+    @Min(value = 1, message = "The number should be positive")
+        private int semester;
 
     @Min(value = 1, message = "The group number should be positive")
     private int groupNumber;
 
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
+    @OrderBy("studentId")
+    private Set<Student> studentList;
 
-    @OneToMany(mappedBy = "group",cascade = CascadeType.ALL)
-    @OrderBy("scheduleId")
-    private Set<Schedule> scheduleList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+    private Set<Schedule> scheduleListGroupStudent;
 
 
-    public long getGroupId() {
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
+    public int getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(long groupId) {
+    public void setGroupId(int groupId) {
         this.groupId = groupId;
     }
 
@@ -51,11 +62,20 @@ public class GroupStudent implements Serializable {
         this.groupNumber = groupNumber;
     }
 
-    public Set<Schedule> getScheduleList() {
-        return scheduleList;
+    public Set<Schedule> getScheduleListGroupStudent() {
+        return scheduleListGroupStudent;
     }
 
-    public void setScheduleList(Set<Schedule> scheduleList) {
-        this.scheduleList = scheduleList;
+    public void setScheduleListGroupStudent(Set<Schedule> scheduleListGroupStudent) {
+        this.scheduleListGroupStudent = scheduleListGroupStudent;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupStudent{" +
+                "groupId=" + groupId +
+                ", semester=" + semester +
+                ", groupNumber=" + groupNumber +
+                '}';
     }
 }

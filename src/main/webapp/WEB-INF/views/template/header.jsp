@@ -1,4 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html;charset=UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,7 +53,23 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li><a href="<c:url value="/admin"/>">Admin</a></li>
+                        <c:if test="${pageContext.request.userPrincipal.name != null}">
+                            <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+                            <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
+
+                            <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+                                <li><a href="<spring:url value="/rateTeacher"/>">Rate the teacher</a></li>
+                            </c:if>
+
+                            <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+                                <li><a href="<c:url value="/admin" />">Admin</a></li>
+                            </c:if>
+
+                        </c:if>
+
+                        <c:if test="${pageContext.request.userPrincipal.name == null}">
+                            <li><a href="<c:url value="/login" />">Login</a></li>
+                        </c:if>
                     </ul>
                 </div>
             </div>

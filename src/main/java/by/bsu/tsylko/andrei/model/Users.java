@@ -14,6 +14,15 @@ public class Users {
     private String password;
     private Boolean enabled;
     private int studentId;
+    private int teacherId;
+
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
+    }
 
     public int getUsersId() {
         return usersId;

@@ -1,11 +1,11 @@
 package by.bsu.tsylko.andrei.model;
 
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
 public class Schedule implements Serializable {
 
@@ -15,31 +15,35 @@ public class Schedule implements Serializable {
 
     @Id
     @GeneratedValue
-    private long scheduleId;
+    private int scheduleId;
 
 
     private int currentSemester;
 
     @ManyToOne
-    @JoinColumn(name = "groupId")
+    @JoinColumn(name = "groupId", nullable = false)//,updatable = false, insertable = false)
+//    @org.hibernate.annotations.ForeignKey(name = "FK_GROUP_ID")
     @JsonIgnore
     private GroupStudent group;
-//
+
+
     @ManyToOne
-    @JoinColumn(name = "subjectId")
+    @JoinColumn(name = "subjectId", nullable = false)//, updatable = false, insertable = false)
+   // @org.hibernate.annotations.ForeignKey(name = "FK_SUBJECT_ID")
     @JsonIgnore
     private Subject subject;
 
     @ManyToOne
-    @JoinColumn(name = "teacherId")
+    @JoinColumn(name = "teacherId", nullable = false)
     @JsonIgnore
     private Teacher teacher;
 
-    public long getScheduleId() {
+
+    public int getScheduleId() {
         return scheduleId;
     }
 
-    public void setScheduleId(long scheduleId) {
+    public void setScheduleId(int scheduleId) {
         this.scheduleId = scheduleId;
     }
 
@@ -73,5 +77,14 @@ public class Schedule implements Serializable {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "scheduleId=" + scheduleId +
+                ", currentSemester=" + currentSemester +
+                '}';
     }
 }

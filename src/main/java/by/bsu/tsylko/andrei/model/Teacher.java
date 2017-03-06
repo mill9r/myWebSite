@@ -12,6 +12,7 @@ import java.util.List;
 public class Teacher implements Serializable {
 
 
+    private static final long serialVersionUID = 982861814088982223L;
     @Id
     @Min(value = 1, message = " The contract number should be positive")
     private int contractNumber;
@@ -27,12 +28,45 @@ public class Teacher implements Serializable {
     private MultipartFile teacherImage;
 
 
-    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<Schedule> scheduleList;
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL)
+    private List<Schedule> scheduleListTeacher;
 
 
-    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "teacher",cascade = CascadeType.ALL)
     private List<TeacherResult> teacherResults;
+
+
+    @NotEmpty (message = "The customer username must not be null")
+    private String username;
+
+    @NotEmpty (message = "The customer password must not be null")
+    private String password;
+
+    private boolean enabled;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public List<TeacherResult> getTeacherResults() {
         return teacherResults;
@@ -42,12 +76,12 @@ public class Teacher implements Serializable {
         this.teacherResults = teacherResults;
     }
 
-    public List<Schedule> getScheduleList() {
-        return scheduleList;
+    public List<Schedule> getScheduleListTeacher() {
+        return scheduleListTeacher;
     }
 
-    public void setScheduleList(List<Schedule> scheduleList) {
-        this.scheduleList = scheduleList;
+    public void setScheduleListTeacher(List<Schedule> scheduleListTeacher) {
+        this.scheduleListTeacher = scheduleListTeacher;
     }
 
     public int getContractNumber() {

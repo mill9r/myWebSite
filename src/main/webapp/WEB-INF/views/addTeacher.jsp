@@ -1,8 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <%----%>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <div class="container-wrapper">
@@ -14,6 +10,12 @@
 
         <form:form action="${pageContext.request.contextPath}/admin/teacherAccounting/addTeacher" method="post"
                    commandName="teacher" enctype="multipart/form-data">
+
+            <form:hidden path="enabled" value="${teacher.enabled}"/>
+            <form:hidden path="username" value="${teacher.username}"/>
+            <form:hidden path="password" value="${teacher.password}"/>
+
+
         <div class="form-group">
             <label for="contractNumber">Contract Number</label><form:errors path="contractNumber" cssStyle="color: #ff0000"/>
             <form:input path="contractNumber" id="contractNumber" class="form-Control"/>
@@ -39,15 +41,12 @@
             <label class="checkbox-inline"><form:radiobutton path="academicDegree" id="degree" value="Doctor"/>
                 Doctor </label>
         </div>
-        <div class="form-group">
-            <label for="teacherDepartment">Teacher Department </label>
-            <form:input path="teacherDepartment" id="teacherDepartment" class="form-Control"/>
-        </div>
 
         <div class="form-group">
             <label class="control-label" for="teacherImage">Upload picture</label>
             <form:input id="teacherImage" path="teacherImage" type="file" class="form:input-large"/>
         </div>
+
 
         <br>
         <br>

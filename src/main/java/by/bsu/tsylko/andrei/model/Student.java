@@ -28,9 +28,51 @@ public class Student implements Serializable{
     private GroupStudent group;
 
 
+    @NotEmpty (message = "The customer username must not be null")
+    @Column(unique=true)
+    private String username;
 
-    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @NotEmpty (message = "The customer password must not be null")
+    private String password;
+
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
     private List<TeacherResult> teacherResults;
+
+    private boolean enabled;
+
+    public GroupStudent getGroup() {
+        return group;
+    }
+
+    public void setGroup(GroupStudent group) {
+        this.group = group;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+
 
 
     public List<TeacherResult> getTeacherResults() {
@@ -66,5 +108,16 @@ public class Student implements Serializable{
     }
 
 
-
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", group=" + group +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                '}';
+    }
 }

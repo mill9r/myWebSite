@@ -5,6 +5,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,35 +18,35 @@ public class Subject implements Serializable {
 
     @Id
     @GeneratedValue
-    private long subjectId;
+    private int subjectId;
 
-    @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL)
-    @OrderBy("scheduleId")
-    private Set<Schedule> scheduleList;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "subject")
+    private Set<Schedule> scheduleListSubject;
 
 
     @NotEmpty(message = " Please enter a subject name")
     private String subjectName;
 
-    @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @OrderBy("teacherResultId")
     private Set<TeacherResult> teacherResults;
 
 
-    public long getSubjectId() {
+    public int getSubjectId() {
         return subjectId;
     }
 
-    public void setSubjectId(long subjectId) {
+    public void setSubjectId(int subjectId) {
         this.subjectId = subjectId;
     }
 
-    public Set<Schedule> getScheduleList() {
-        return scheduleList;
+
+    public Set<Schedule> getScheduleListSubject() {
+        return scheduleListSubject;
     }
 
-    public void setScheduleList(Set<Schedule> scheduleList) {
-        this.scheduleList = scheduleList;
+    public void setScheduleListSubject(Set<Schedule> scheduleListSubject) {
+        this.scheduleListSubject = scheduleListSubject;
     }
 
     public String getSubjectName() {
@@ -60,5 +63,14 @@ public class Subject implements Serializable {
 
     public void setTeacherResults(Set<TeacherResult> teacherResults) {
         this.teacherResults = teacherResults;
+    }
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "subjectId=" + subjectId +
+                ", subjectName='" + subjectName + '\'' +
+                ", teacherResults=" + teacherResults +
+                '}';
     }
 }
