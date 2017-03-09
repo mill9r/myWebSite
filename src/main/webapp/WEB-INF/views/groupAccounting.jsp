@@ -3,8 +3,8 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Group list page</h1>
-            <p class="lead">This is a group list page</p>
+            <h1>Список группы</h1>
+            <p class="lead">Здесь представлен список групп.</p>
         </div>
         <table class="table table-striped table-hover">
             <thead>
@@ -26,6 +26,6 @@
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/groupAccounting/addGroup"/>" class="btn btn-primary">Add group</a>
+        <a href="<spring:url value="/admin/groupAccounting/addGroup"/>" class="btn btn-primary">Добавить группу</a>
 
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

@@ -4,16 +4,16 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>timetable page</h1>
-            <p class="lead">This is a timetable page</p>
+            <h1>Расписние</h1>
+            <p class="lead">Здесь собрана информация о группах, текущем семетре, преподавателе и предмете</p>
         </div>
-        <table class="table table-striped table-hover">
+        <table class="table table-hover table-striped">
             <thead>
             <tr>
-                <th>Current Semester</th>
-                <th>Group</th>
-                <th>Subject</th>
-                <th>Teacher</th>
+                <th>Текущий семестр</th>
+                <th>Группа</th>
+                <th>Предмет</th>
+                <th>Преподаватель</th>
             </tr>
             </thead>
             <c:forEach items="${schedule}" var="schedule">
@@ -31,7 +31,7 @@
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/scheduleAccounting/addSchedule"/>" class="btn btn-primary">Add table</a>
+        <a href="<spring:url value="/admin/scheduleAccounting/addSchedule"/>" class="btn btn-primary">Добавить в расписание</a>
 
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
 

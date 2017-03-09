@@ -70,6 +70,7 @@ public class AdminController {
 
         teacher.setUsername(String.valueOf(teacher.getContractNumber()));
         teacher.setPassword(String.valueOf(teacher.getContractNumber()));
+        teacher.setEnabled(true);
 
         teacherDao.addTeacher(teacher);
         //for photo

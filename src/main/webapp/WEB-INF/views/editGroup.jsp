@@ -3,15 +3,15 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Edit group</h1>
-            <p class="lead">Please, update the information about group</p>
+            <h1>Редактировать группу</h1>
+            <p class="lead">Пожалуйста, обновите информацию о группе.</p>
         </div>
         <form:form action="${pageContext.request.contextPath}/admin/groupAccounting/editGroup"
                    method="post" commandName="groupStudent">
 
             <form:hidden path="groupId" value="${groupStudent.groupId}"/>
         <div class="form-group">
-            <label for="groupNumber">Group Number</label><form:errors path="groupNumber" cssStyle="color: #ff0000"/>
+            <label for="groupNumber">Номер группы</label><form:errors path="groupNumber" cssStyle="color: #ff0000"/>
             <form:input path="groupNumber" id="groupNumber" class="form-Control" value="${groupStudent.groupNumber}"/>
         </div>
 
@@ -23,8 +23,8 @@
         <br>
         <br>
 
-        <input type="submit" value="submit" class="btn btn-default">
-        <a href="<spring:url value="/admin/groupAccounting"/>" class="btn btn-primary">Cancel</a>
+        <input type="submit" value="Сохранить" class="btn btn-primary">
+        <a href="<spring:url value="/admin/groupAccounting"/>" class="btn btn-default">Отмена</a>
 
         </form:form>
 

@@ -33,7 +33,7 @@
 <div class="navbar-wrapper">
     <div class="container">
 
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -43,32 +43,31 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="#">Rate My Teacher</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="<c:url value="/"/>">Home</a></li>
+                        <li class="active"><a href="<c:url value="/"/>">Домашняя страница</a></li>
                         <%--JSTL Tag--%>
-                        <li><a href="<c:url value="/teacherList"/> ">Teachers</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="<c:url value="/teacherList"/> ">Преподаватели</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
-                            <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+                                <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
                             <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
 
                             <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-                                <li><a href="<spring:url value="/rateTeacher"/>">Rate the teacher</a></li>
+                                <li><a href="<spring:url value="/rateTeacher"/>">Оценить курс</a></li>
                             </c:if>
 
                             <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
-                                <li><a href="<c:url value="/admin" />">Admin</a></li>
+                                <li><a href="<c:url value="/admin" />">Администратор</a></li>
                             </c:if>
 
                         </c:if>
 
                         <c:if test="${pageContext.request.userPrincipal.name == null}">
-                            <li><a href="<c:url value="/login" />">Login</a></li>
+                            <li><a href="<c:url value="/login" />">Логин</a></li>
                         </c:if>
                     </ul>
                 </div>

@@ -3,13 +3,13 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Subject list page</h1>
-            <p class="lead">This is a subject list page</p>
+            <h1>Список предметов</h1>
+            <p class="lead">Список всех предметов на программе.</p>
         </div>
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-                <th>Subject</th>
+                <th>Предмет </th>
             </tr>
             </thead>
             <c:forEach items="${subject}" var="subject">
@@ -24,6 +24,6 @@
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/subjectAccounting/addSubject"/>" class="btn btn-primary">Add group</a>
+        <a href="<spring:url value="/admin/subjectAccounting/addSubject"/>" class="btn btn-primary">Добавить предмет</a>
 
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

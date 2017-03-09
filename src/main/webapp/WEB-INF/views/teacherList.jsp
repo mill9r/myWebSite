@@ -4,23 +4,23 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Teachers list</h1>
-            <p class="lead">Here is detail information of the product</p>
+            <h1>Список преподавателей</h1>
+            <p class="lead">Здесь представленна информация о преподавателях</p>
         </div>
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-                <th>Photo Thumb</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Patronymic</th>
-                <th>Academic degree</th>
+                <th>Фото</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th class="col-md-4">Академическая степень</th>
             </tr>
             </thead>
             <c:forEach items="${teachers}" var="teacher">
                 <tr>
                     <td><img src="<c:url value="/resources/images/${teacher.contractNumber}.png"/> " alt="img"
-                        style="width:100%"/>
+                        style="width:100%; height: auto"/>
                     </td>
                     <td>${teacher.name}</td>
                     <td>${teacher.lastName}</td>

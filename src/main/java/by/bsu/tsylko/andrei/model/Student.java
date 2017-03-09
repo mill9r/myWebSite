@@ -15,11 +15,11 @@ public class Student implements Serializable{
 
 
     @Id
-    @Min(value = 1, message = " The student ID should be positive")
+    @Min(value = 1, message = " Значение для номера зачетной книги должно быть положительным")
     private int studentId;
 
     private String name;
-    @NotEmpty(message = " Please enter a surname")
+    @NotEmpty(message = " Введите фамилию")
     private String lastName;
 
     @ManyToOne
@@ -28,11 +28,11 @@ public class Student implements Serializable{
     private GroupStudent group;
 
 
-    @NotEmpty (message = "The customer username must not be null")
+    @NotEmpty (message = " Заполните поле username")
     @Column(unique=true)
     private String username;
 
-    @NotEmpty (message = "The customer password must not be null")
+    @NotEmpty (message = " Поле пароль не должно быть пустым")
     private String password;
 
     @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)

@@ -27,17 +27,6 @@ public class TeacherResult implements Serializable {
     private int questionTen;
     private int questionEleven;
     private int questionTwelve;
-    private int questionThirteen;
-    private int questionFourteen;
-    private int questionFifteen;
-    private int questionSixteen;
-    private int questionSeventeen;
-    private int questionEighteen;
-    private int questionNineteen;
-    private int questionTwenty;
-    private int questionTwentyOne;
-    private int questionTwentyTwo;
-    private int questionTwentyThree;
 
 
     @ManyToOne
@@ -159,94 +148,6 @@ public class TeacherResult implements Serializable {
 
     public void setQuestionTwelve(int questionTwelve) {
         this.questionTwelve = questionTwelve;
-    }
-
-    public int getQuestionThirteen() {
-        return questionThirteen;
-    }
-
-    public void setQuestionThirteen(int questionThirteen) {
-        this.questionThirteen = questionThirteen;
-    }
-
-    public int getQuestionFourteen() {
-        return questionFourteen;
-    }
-
-    public void setQuestionFourteen(int questionFourteen) {
-        this.questionFourteen = questionFourteen;
-    }
-
-    public int getQuestionFifteen() {
-        return questionFifteen;
-    }
-
-    public void setQuestionFifteen(int questionFifteen) {
-        this.questionFifteen = questionFifteen;
-    }
-
-    public int getQuestionSixteen() {
-        return questionSixteen;
-    }
-
-    public void setQuestionSixteen(int questionSixteen) {
-        this.questionSixteen = questionSixteen;
-    }
-
-    public int getQuestionSeventeen() {
-        return questionSeventeen;
-    }
-
-    public void setQuestionSeventeen(int questionSeventeen) {
-        this.questionSeventeen = questionSeventeen;
-    }
-
-    public int getQuestionEighteen() {
-        return questionEighteen;
-    }
-
-    public void setQuestionEighteen(int questionEighteen) {
-        this.questionEighteen = questionEighteen;
-    }
-
-    public int getQuestionNineteen() {
-        return questionNineteen;
-    }
-
-    public void setQuestionNineteen(int questionNineteen) {
-        this.questionNineteen = questionNineteen;
-    }
-
-    public int getQuestionTwenty() {
-        return questionTwenty;
-    }
-
-    public void setQuestionTwenty(int questionTwenty) {
-        this.questionTwenty = questionTwenty;
-    }
-
-    public int getQuestionTwentyOne() {
-        return questionTwentyOne;
-    }
-
-    public void setQuestionTwentyOne(int questionTwentyOne) {
-        this.questionTwentyOne = questionTwentyOne;
-    }
-
-    public int getQuestionTwentyTwo() {
-        return questionTwentyTwo;
-    }
-
-    public void setQuestionTwentyTwo(int questionTwentyTwo) {
-        this.questionTwentyTwo = questionTwentyTwo;
-    }
-
-    public int getQuestionTwentyThree() {
-        return questionTwentyThree;
-    }
-
-    public void setQuestionTwentyThree(int questionTwentyThree) {
-        this.questionTwentyThree = questionTwentyThree;
     }
 
     public Student getStudent() {

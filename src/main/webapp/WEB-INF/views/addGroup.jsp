@@ -3,14 +3,14 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Add group</h1>
-            <p class="lead">Please, add a group number</p>
+            <h1>Дабивать группу</h1>
+            <p class="lead">Пожалуйста, внесите информацию о группе</p>
         </div>
         <form:form action="${pageContext.request.contextPath}/admin/groupAccounting/addGroup"
                    method="post" commandName="group">
 
         <div class="form-group">
-            <label for="groupNumber">Group Number </label><form:errors path="groupNumber" cssStyle="color: #ff0000"/>
+            <label for="groupNumber">Номер группы </label><form:errors path="groupNumber" cssStyle="color: #ff0000"/>
             <form:input path="groupNumber" id="groupNumber" class="form-Control"/>
         </div>
         <div class="form-group">
@@ -21,8 +21,8 @@
         <br>
         <br>
 
-        <input type="submit" value="submit" class="btn btn-default">
-        <a href="<spring:url value="/admin/groupAccounting"/>" class="btn btn-primary">Cancel</a>
+        <input type="submit" value="Сохранить" class="btn btn-primary">
+        <a href="<spring:url value="/admin/groupAccounting"/>" class="btn btn-default">Отменить</a>
 
         </form:form>
 

@@ -4,15 +4,15 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Students accounting page</h1>
-            <p class="lead">This is a student accounting page</p>
+            <h1>Список студентов</h1>
+            <p class="lead">На странице отображен список всех студентов</p>
         </div>
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>GroupNumber</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Номер группы</th>
             </tr>
             </thead>
             <c:forEach items="${student}" var="student">
@@ -28,7 +28,7 @@
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/studentAccounting/addStudent"/>" class="btn btn-primary">Add student</a>
+        <a href="<spring:url value="/admin/studentAccounting/addStudent"/>" class="btn btn-primary">Добавить студента</a>
 
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
 

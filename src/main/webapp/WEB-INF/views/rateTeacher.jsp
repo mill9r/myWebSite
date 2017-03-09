@@ -17,7 +17,7 @@
                 <tr>
                     <td>${schedules.subject.subjectName}</td>
                     <td>${schedules.teacher.lastName}</td>
-                    <td><a href="<spring:url value="/rateTeacher/rateForm/${schedules.teacher.contractNumber} & ${schedules.subject.subjectId}"/> "> <span
+                    <td><a href="<spring:url value="/rateTeacher/rateForm/${schedules.teacher.contractNumber}/${schedules.subject.subjectId}"/> "> <span
                             class="glyphicon glyphicon-list-alt"></span></a></td>
                 </tr>
             </c:forEach>

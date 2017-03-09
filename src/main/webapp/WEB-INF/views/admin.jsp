@@ -4,23 +4,26 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Administrator page</h1>
-            <p class="lead">This is the administration page</p>
+            <h1>Страница Администратор</h1>
+            <p class="lead">На этой странице можно отредактировать данные.</p>
         </div>
         <h3>
-            <a href="<c:url value="/admin/teacherAccounting"/> "> Teacher Accounting</a>
+            <a href="<c:url value="/admin/teacherAccounting"/> "> Редактировать преподавателей</a>
         </h3>
         <h3>
-            <a href="<c:url value="/admin/groupAccounting"/> "> Group Accounting</a>
+            <a href="<c:url value="/admin/groupAccounting"/> "> Редактировать группы</a>
         </h3>
         <h3>
-            <a href="<c:url value="/admin/studentAccounting"/> "> Student Accounting</a>
+            <a href="<c:url value="/admin/studentAccounting"/> "> Редактировать студентов</a>
         </h3>
         <h3>
-            <a href="<c:url value="/admin/subjectAccounting"/> "> Subject Accounting</a>
+            <a href="<c:url value="/admin/subjectAccounting"/> "> Редактировать предметы</a>
         </h3>
         <h3>
-            <a href="<c:url value="/admin/scheduleAccounting"/> "> TimeTable</a>
+            <a href="<c:url value="/admin/scheduleAccounting"/> "> Редактировать расписание</a>
+        </h3>
+        <h3>
+            <a href="<c:url value="/admin/rankResult"/> "> Создать отчёт </a>
         </h3>
 
         <c:if test="${pageContext.request.userPrincipal.name != null}">
@@ -30,6 +33,5 @@
         </h2>
         </c:if>
 
-        <p>Here you can view, check and modify the teacher accounting</p>
 
         <%@include file="/WEB-INF/views/template/footer.jsp" %>

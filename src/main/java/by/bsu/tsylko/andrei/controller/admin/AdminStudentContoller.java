@@ -43,12 +43,13 @@ public class AdminStudentContoller {
 
 
     @RequestMapping(value = "/studentAccounting/addStudent", method = RequestMethod.POST)
-    public String addStudenPost(@Valid @ModelAttribute("student") Student student, BindingResult resultStudent
+    public String addStudenPost(@Valid @ModelAttribute("student") Student student,
+                                BindingResult resultStudent
     ) {
 
-//        if (resultStudent.hasErrors()) {
-//            return "addStudent";
-//        }
+        if (resultStudent.hasErrors()) {
+            return "addStudent";
+        }
 
         student.setEnabled(true);
         student.setPassword(String.valueOf(student.getStudentId()));
@@ -56,6 +57,7 @@ public class AdminStudentContoller {
         studentService.addStudent(student);
         return "redirect:/admin/studentAccounting";
     }
+
 
     @RequestMapping("/studentAccounting/editStudent/{id}")
     public String editStudent(@PathVariable("id") int id, Model model) {
@@ -82,7 +84,7 @@ public class AdminStudentContoller {
 
 
     @RequestMapping("/studentAccounting/deleteStudent/{id}")
-    public String deleteStudent(@PathVariable ("id") int id) {
+    public String deleteStudent(@PathVariable("id") int id) {
         studentService.deleteStudent(id);
 
         return "redirect:/admin/studentAccounting";

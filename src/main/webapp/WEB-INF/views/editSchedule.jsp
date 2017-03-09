@@ -3,8 +3,8 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Add group</h1>
-            <p class="lead">Please, add a group number</p>
+            <h1>Редактировать расписание</h1>
+            <p class="lead">Редактировать текущий семестр, группу, преподавателя и предмет</p>
         </div>
         <form:form action="${pageContext.request.contextPath}/admin/scheduleAccounting/editSchedule"
                    method="post" commandName="schedule">
@@ -12,12 +12,12 @@
         <form:hidden path="scheduleId" value="${schedule.scheduleId}"/>
         
         <div class="form-group">
-            <label for="currentSemester">Current Semester</label>
+            <label for="currentSemester">Текущий семестр</label>
             <form:input path="currentSemester" id="currentSemester" class="form-Control"/>
         </div>
 
         <div class="form-group">
-            <label for="group.groupId">Group Number </label>
+            <label for="group.groupId">Номер группы </label>
             <form:select path="group.groupId">
                 <ul class="dropdown-menu">
                     <form:options items="${group}" itemValue="groupId" itemLabel="groupNumber"/>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            <label for="teacher.contractNumber">Teacher </label>
+            <label for="teacher.contractNumber">Преподаватель </label>
             <form:select path="teacher.contractNumber">
                 <ul class="dropdown-menu">
                     <form:options items="${teacher}" itemValue="contractNumber" itemLabel="lastName"/>
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group">
-            <label for="subject.subjectId">Subject </label>
+            <label for="subject.subjectId">Предмет </label>
             <form:select path="subject.subjectId">
                 <ul class="dropdown-menu">
                     <form:options items="${subject}" itemValue="subjectId" itemLabel="subjectName"/>
@@ -47,8 +47,8 @@
         <br>
         <br>
 
-        <input type="submit" value="submit" class="btn btn-default">
-        <a href="<spring:url value="/admin/scheduleAccounting"/>" class="btn btn-primary">Cancel</a>
+        <input type="submit" value="Сохранить" class="btn btn-primary">
+        <a href="<spring:url value="/admin/scheduleAccounting"/>" class="btn btn-default">Отмена</a>
 
         </form:form>
 

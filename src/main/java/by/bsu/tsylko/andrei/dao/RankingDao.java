@@ -2,7 +2,6 @@ package by.bsu.tsylko.andrei.dao;
 
 
 import by.bsu.tsylko.andrei.model.TeacherResult;
-
 import java.util.List;
 
 public interface RankingDao {
@@ -11,7 +10,7 @@ public interface RankingDao {
 
     TeacherResult getSubjectById(int subjectId);
 
+    List<TeacherResult> getSubjectAndTeacherResultById(int subjectId,int teacherId);
+
     List<TeacherResult> getAllTeacherResult();
-
-
 }

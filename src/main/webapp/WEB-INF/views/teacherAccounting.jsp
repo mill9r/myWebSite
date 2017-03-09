@@ -4,17 +4,17 @@
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
-            <h1>Teachers accounting page</h1>
-            <p class="lead">This is a teachers accounting page</p>
+            <h1>Редактировать список преподавателей</h1>
+            <p class="lead">Здесь отображены все преподаватели</p>
         </div>
         <table class="table table-striped table-hover">
             <thead>
             <tr>
-                <th>Photo Thumb</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Patronymic</th>
-                <th>Academic degree</th>
+                <th>Фотография</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th class="col-md-4">Академическая степень</th>
             </tr>
             </thead>
             <c:forEach items="${teachers}" var="teacher">
@@ -36,6 +36,6 @@
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/teacherAccounting/addTeacher"/>" class="btn btn-primary">Add teacher</a>
+        <a href="<spring:url value="/admin/teacherAccounting/addTeacher"/>" class="btn btn-primary">Добавить преподавателя</a>
 
         <%@include file="/WEB-INF/views/template/footer.jsp" %>
